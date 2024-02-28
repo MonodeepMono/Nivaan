@@ -1,6 +1,6 @@
 Date,DoctorName,ClinicName,NewConsults,FollowupConsults,Revenue,CRPConsults,CRP_Revenue,PRCConsults,PRC_Revenue
 2024-02-29,Dr Pradeep Jain,Delhi Pain relief Clinic,0.0,1.0,,0.0,,0.0,
-2024-02-27,Dr Rohit Gulati,Sama Hospital,1.0,0.0,,0.0,,0.0,
+2024-02-27,Dr Rohit Gulati,Sama Hospital,2.0,0.0,,0.0,,0.0,
 2024-02-26,Dr Rohit Gulati,Sama Hospital,1.0,0.0,,0.0,,0.0,
 2024-02-25,Dr Garima Gupta,Gouri Hospital,2.0,0.0,1000.0,0.0,,0.0,
 2024-02-24,Dr Garima Gupta,Gouri Hospital,1.0,0.0,750.0,0.0,,0.0,
