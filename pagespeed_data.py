@@ -20,7 +20,12 @@ def fetch_pagespeed_data(url, device_type):
 
 # List of URLs to fetch data for
 urls = [
-   
+#    'https://home.joinelevatenow.co.in/pp/postpartum/postpartum_optimized.html',
+       'https://www.joinelevatenow.com/pp/postpartumform/optimized_sunny/',
+       'https://www.joinelevatenow.com/pp/easy-weight-loss/men/optimized_sunny/',
+       'https://www.joinelevatenow.com/nasik-landing-page',
+       'https://www.joinelevatenow.com/eligibility-ab',
+       'https://www.joinelevatenow.com/en-eligibility'
     
 ]
 
