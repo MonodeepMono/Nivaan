@@ -80,14 +80,10 @@ customer.descriptive_name,
 
 segments.date
 FROM ad_group_ad
-WHERE segments.date BETWEEN '2024-02-28' AND '2024-02-29'
+WHERE segments.date BETWEEN '2024-02-01' AND '2024-02-29'
 ORDER BY
 campaign.id
 """
-
-# df_DATA = pd.read_sql_query(sql_query,client)
-# df_DATA
-# print(df_DATA)
 
 # Convert and save in batches
 batch_size = 1000
