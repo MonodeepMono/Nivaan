@@ -106,3 +106,53 @@ finally:
 
 df = pd.DataFrame(converted_data)
 print(df)
+
+
+
+
+# # Create Table stagging
+
+# import mysql.connector
+
+# #establishing the connection
+# conn = mysql.connector.connect(
+#    user='admin', password='web-engage-staging', host='web-engage.cmwukub0eama.ap-south-1.rds.amazonaws.com', database='marketingDashboard'
+# )
+
+# #Creating a cursor object using the cursor() method
+# cursor = conn.cursor()
+
+# #Dropping EMPLOYEE table if already exists.
+# # cursor.execute("DROP TABLE IF EXISTS Callyzer_callHistory")
+
+# #Creating table as per requirement
+# sql ='''CREATE TABLE Callyzer_callHistory(
+# employee varchar(255),
+# client TEXT,
+# clientName TEXT,
+# countryCode TEXT,
+# clientNumber varchar(255),
+# date DATE,
+# time TEXT,
+# duration TEXT,
+# callType TEXT,
+# note TEXT,
+# callRecordingPath TEXT,
+# uniqueId TEXT
+# ) PARTITION BY KEY(date)
+#     PARTITIONS 16;'''
+
+# cursor.execute(sql)
+# #Closing the connection
+# conn.close()
+
+
+
+# # Create connection to database Prod
+# mysql = lazy_SQL(sql_type = 'mysql',
+#                  host_name = 'marketing-db.cmwukub0eama.ap-south-1.rds.amazonaws.com',
+#                  database_name = 'marketingDashboard',
+#                  user = 'admin',
+#                  password = 'marketing')
+# # Upsert "df" into your table
+# mysql.dump_replace(df_Final, 'Callyzer_callHistory', list_key = ["uniqueId"])
