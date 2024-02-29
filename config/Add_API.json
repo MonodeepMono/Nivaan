@@ -1,0 +1,8 @@
+{
+    "client_id": "173477792589-u60m6se2vov53erok6irra58hsa2s8r3.apps.googleusercontent.com",
+    "client_secret": "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",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "refresh_token": "1//0gxdvwWHy_tx9CgYIARAAGBASNgF-L9IrG31lRuaq9MLrBMzVKeawMmZBFNKBJwHKeVwtEsh5jhkia3AEhDi9RWdMMwvSt4Bm3A",
+    "type": "authorized_user"
+}
