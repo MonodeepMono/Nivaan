@@ -10,9 +10,9 @@ import mysql.connector
 
 
 mydb = mysql.connector.connect(
-  host="prod-nivaancare-mysql-02.cydlopxelbug.ap-south-1.rds.amazonaws.com",
+  host="stg-nivaancare-mysql-01.cydlopxelbug.ap-south-1.rds.amazonaws.com",
   user="monodeep.saha",
-  password="u5eOX37kNPh13J",
+  password="u5eOX37kNPh13Jdhgfv",
   database="nivaancare_production"
 )
 mycursor = mydb.cursor()
@@ -78,7 +78,7 @@ df_Final_filtered = df_Final.loc[(df_Final['NewConsults'] != 0) |
 df_Final_filtered
 df_Final_filtered_sorted = df_Final_filtered.sort_values(by='Date', ascending=False)
 df_Final_filtered_sorted
-df_Final_filtered_sorted.to_csv('MIS_Tracker.csv',index = False)
+df_Final_filtered_sorted.to_csv('MIS_Tracker_STAGGING.csv',index = False)
 df_Final_filtered_sorted
 print(df_Final_filtered_sorted)
 
@@ -97,12 +97,12 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name('my-project-2024-
 gc = gspread.authorize(credentials)
 
 # Open the spreadsheet by its ID
-spreadsheetId = '1ldw_7GtmHxRy_tYTaajyeItqezcLRwWztqxnWHYP528'
+spreadsheetId = '1Q_hSui9h0fPrWmn7Ci46ra-tjmBG2U3cR2HqDFwJ6KM'
 sh = gc.open_by_key(spreadsheetId)
 
 # Define the sheet name and CSV file path
 sheetName = 'RAW'
-csvFile = 'MIS_Tracker.csv'
+csvFile = 'MIS_Tracker_STAGGING.csv'
 
 # Clear existing values in the specified range
 sh.values_clear("'RAW'!A:J")
