@@ -1,35 +1,37 @@
 Date,PMS_Name,ClinicName,PMS_New_Consults,PMS_Follow_up_Consults,Consult_GMV,CRP_Consults,CRP_GMV,PRC_Consults,PRC_GMV,Physio_Consults,Nutrition_Consults,Psychology_Consults
 2024-03-26,Dr Rohit Gulati,Sama Hospital,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
-2024-03-05,Dr Rohit Gulati,Sama Hospital,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-07,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,2.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-06,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,1.0,0.0,500.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-05,Dr Ishan Bhatia,Online,2.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-05,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,7.0,0.0,1500.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-04,Dr Rohit Gulati,Gouri Hospital,1.0,0.0,1750.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-04,Dr Garima Gupta,Online,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-05,Dr Rohit Gulati,Sama Hospital,2.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-04,Dr Garima Gupta,DardMantra,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-04,Dr Abhimanyu Rana,Online,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-04,Dr Rohit Gulati,Sama Hospital,2.0,0.0,1750.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-04,Dr Pradeep Jain,Delhi Pain relief Clinic,2.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-04,Dr Garima Gupta,Online,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-04,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,5.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-04,Dr Rohit Gulati,Gouri Hospital,1.0,0.0,1750.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-04,Dr Pradeep Jain,Delhi Pain relief Clinic,2.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-04,Dr Rohit Gulati,Sama Hospital,2.0,0.0,1750.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr Garima Gupta,Gouri Hospital,4.0,0.0,2200.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr Garima Gupta,DardMantra,1.0,0.0,2200.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr Abhimanyu Rana,,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr G N Goyal,NSPC,2.0,0.0,1500.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr Garima Gupta,Online,1.0,0.0,2200.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-03,Dr Garima Gupta,North Delhi,1.0,0.0,2200.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-02,Dr Abhimanyu Rana,,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-02,Dr Ramandeep Dang,Greater Kailash,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-02,Dr. Praneet Singh,,1.0,0.0,500.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-02,Dr Ramandeep Dang,Dr. Dang's Brain & Spine Clinic,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-02,Dr Ramandeep Dang,Greater Kailash,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-02,Dr Rohit Gulati,Sama Hospital,5.0,0.0,3100.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-02,Dr Abhimanyu Rana,,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-02,Dr G N Goyal,NSPC,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-02,Dr Rohit Gulati,Sama Hospital,5.0,0.0,3100.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-02,Dr Rohit Gulati,Online,2.0,0.0,3100.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-01,Dr Garima Gupta,North Delhi,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-01,Dr Pradeep Jain,,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-01,Dr Abhimanyu Rana,,1.0,0.0,3800.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-01,Dr Pradeep Jain,,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-01,Dr Pradeep Jain,Delhi Pain relief Clinic,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-01,Dr Rohit Gulati,Sama Hospital,4.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-03-01,Dr Garima Gupta,North Delhi,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-01,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,5.0,0.0,3800.0,0.0,,0.0,,0.0,0.0,0.0
 2024-03-01,Dr Garima Gupta,Gouri Hospital,2.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-01,Dr Rohit Gulati,Sama Hospital,4.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-03-01,Dr Pradeep Jain,Delhi Pain relief Clinic,1.0,0.0,2000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-29,Dr Rohit Gulati,Sama Hospital,5.0,0.0,500.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-29,Dr Pradeep Jain,Delhi Pain relief Clinic,2.0,1.0,1350.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-29,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,2.0,0.0,1850.0,0.0,,0.0,,0.0,0.0,0.0
@@ -37,20 +39,20 @@ Date,PMS_Name,ClinicName,PMS_New_Consults,PMS_Follow_up_Consults,Consult_GMV,CRP
 2024-02-29,Dr Abhimanyu Rana,Online,2.0,0.0,1850.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-29,Dr Garima Gupta,North Delhi,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-28,Dr Shahnawaz,IPSC,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-28,Dr Garima Gupta,Gouri Hospital,3.0,0.0,700.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-28,Dr Abhimanyu Rana,Online,1.0,0.0,1500.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-28,Dr Garima Gupta,,2.0,0.0,700.0,0.0,,0.0,,0.0,0.0,0.0
+2024-02-28,Dr Garima Gupta,Gouri Hospital,3.0,0.0,700.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-28,Dr Abhimanyu Rana,Sama Hospital,2.0,0.0,1500.0,0.0,,0.0,,0.0,0.0,0.0
+2024-02-28,Dr Garima Gupta,,2.0,0.0,700.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-28,Dr Pradeep Jain,Delhi Pain relief Clinic,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-27,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,4.0,0.0,2050.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-27,Dr Rohit Gulati,Sama Hospital,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-27,Dr G N Goyal,,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
+2024-02-26,Dr Rohit Gulati,Sama Hospital,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
+2024-02-26,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,3.0,0.0,2700.0,0.0,,0.0,,0.0,0.0,0.0
+2024-02-26,Dr G N Goyal,,1.0,0.0,500.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-26,Dr Garima Gupta,,3.0,0.0,1900.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-26,Dr. (Maj) Pankaj N Surange,IPSC,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-26,Dr Abhimanyu Rana,Online,1.0,0.0,2700.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-26,Dr G N Goyal,,1.0,0.0,500.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-26,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,3.0,0.0,2700.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-26,Dr Rohit Gulati,Sama Hospital,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-25,Dr Garima Gupta,Gouri Hospital,2.0,0.0,2800.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-25,Dr Garima Gupta,,4.0,0.0,2800.0,0.0,,0.0,,0.0,0.0,0.0
 2024-02-25,Dr Abhimanyu Rana,Sama Hospital,2.0,0.0,2500.0,0.0,,0.0,,0.0,0.0,0.0
@@ -73,12 +75,12 @@ Date,PMS_Name,ClinicName,PMS_New_Consults,PMS_Follow_up_Consults,Consult_GMV,CRP
 2024-02-20,Dr G N Goyal,,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-20,Dr Naveen Talwar,Aashlok Hospital,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-20,Dr Abhimanyu Rana,Online,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
-2024-02-19,Dr G N Goyal,,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-19,Dr Shahnawaz,IPSC,1.0,0.0,750.0,0.0,,0.0,,0.0,0.0,0.0
-2024-02-19,Dr Garima Gupta,Online,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-19,Dr Rohit Gulati,Online,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
-2024-02-19,Dr Rohit Gulati,Sama Hospital,4.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
+2024-02-19,Dr Garima Gupta,Online,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
+2024-02-19,Dr G N Goyal,,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-19,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,5.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
+2024-02-19,Dr Rohit Gulati,Sama Hospital,4.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-18,Dr Garima Gupta,Gouri Hospital,5.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-18,Dr Abhimanyu Rana,Online,3.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-02-18,Dr Garima Gupta,Online,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
@@ -154,9 +156,9 @@ Date,PMS_Name,ClinicName,PMS_New_Consults,PMS_Follow_up_Consults,Consult_GMV,CRP
 2024-01-31,Dr Ramandeep Dang,Dr. Dang's Brain & Spine Clinic,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-31,Dr G N Goyal,IPSC,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-31,Dr Pushpinder,Online,1.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
+2024-01-30,Dr Deep Divanshu Lall,,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-30,Dr G N Goyal,Online,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-30,Dr Abhimanyu Rana,Online,2.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
-2024-01-30,Dr Deep Divanshu Lall,,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-30,Dr Abhimanyu Rana,Dr Abhimanyu Rana's Clinic,1.0,0.0,,0.0,,0.0,,0.0,0.0,0.0
 2024-01-30,Dr Pushpinder,Gouri Hospital,4.0,0.0,1000.0,0.0,,0.0,,0.0,0.0,0.0
 2024-01-30,Dr Rohit Gulati,Sama Hospital,4.0,0.0,1500.0,0.0,,0.0,,0.0,0.0,0.0
