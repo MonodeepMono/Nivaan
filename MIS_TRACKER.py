@@ -3,7 +3,6 @@ import pandas as pd
 from pandas import DataFrame
 from pprint import pprint
 import json
-import xlsxwriter
 import numpy as np
 import pandas.io.sql as psql
 import mysql.connector
