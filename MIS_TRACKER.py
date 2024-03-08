@@ -133,3 +133,4 @@ num_rows = len(csv_values)
 num_columns = len(csv_values[0]) if csv_values else 0
 print(f"Number of rows written: {num_rows}")
 print(f"Number of columns written: {num_columns}")
+print(f"CHECK_CRON_GIT")
