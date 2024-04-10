@@ -35,6 +35,12 @@ sql_query = """
     SUM(CASE WHEN c.title LIKE '%MultiSpecCRPBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as MultiSpecCRPBooked,
     SUM(CASE WHEN c.title LIKE '%PhysioCRP%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PhysioCRP, 
     SUM(CASE WHEN c.title LIKE '%PRCDone%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRCDone,
+    
+    SUM(CASE WHEN s.title LIKE '%consult%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_New_Consults_new,
+    SUM(CASE WHEN s.title LIKE '%followup%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_Follow_up_Consults_new,
+    SUM(CASE WHEN s.title LIKE '%CRP_sessions%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as CRP_Consults_new, 
+    SUM(CASE WHEN s.title LIKE '%procedure%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRC_Consults_new,
+   
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
      WHERE (title LIKE '%First Consultation%' OR title LIKE '%Follow up%')
@@ -42,6 +48,16 @@ sql_query = """
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
     ) as Consult_GMV,
+    
+    (SELECT SUM(amount) 
+     FROM nivaancare_production.consultation 
+     WHERE (s.title LIKE '%consult%' OR s.title LIKE '%followup%')
+     AND patient_attendance_status = 'show'
+     AND consultant_id = c.consultant_id
+     AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
+    ) as Consult_GMV_new,
+    
+    
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
      WHERE title LIKE '%CRP%' 
@@ -49,13 +65,31 @@ sql_query = """
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
     ) as CRP_GMV,
+    
+    (SELECT SUM(amount) 
+     FROM nivaancare_production.consultation 
+     WHERE s.title LIKE '%CRP_sessions%' 
+     AND patient_attendance_status = 'show'
+     AND consultant_id = c.consultant_id
+     AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
+    ) as CRP_GMV_new,
+    
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
      WHERE title LIKE '%PRC%' 
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as PRC_GMV
+    ) as PRC_GMV,
+    
+     (SELECT SUM(amount) 
+     FROM nivaancare_production.consultation 
+     WHERE s.title LIKE '%procedure%' 
+     AND patient_attendance_status = 'show'
+     AND consultant_id = c.consultant_id
+     AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
+    ) as PRC_GMV_new
+    
 FROM 
     nivaancare_production.consultation c
 LEFT JOIN 
@@ -66,6 +100,8 @@ LEFT JOIN
     nivaancare_production.location l 
 ON 
     c.location_id = l.id
+LEFT JOIN 
+        nivaancare_production.service s ON c.service_id = s.id
 GROUP BY 
     Date, PMS_Name, ClinicName
 ORDER BY 
@@ -74,6 +110,14 @@ ORDER BY
 """
 df_DATA = pd.read_sql_query(sql_query,mydb)
 df_DATA
+df_DATA['PMS_New_Consults'] = np.where(df_DATA['PMS_New_Consults_new'].notnull(), df_DATA['PMS_New_Consults_new'], df_DATA['PMS_New_Consults'])
+df_DATA['PMS_Follow_up_Consults'] = np.where(df_DATA['PMS_Follow_up_Consults_new'].notnull(), df_DATA['PMS_Follow_up_Consults_new'], df_DATA['PMS_Follow_up_Consults'])
+df_DATA['CRP_Consults'] = np.where(df_DATA['CRP_Consults_new'].notnull(), df_DATA['CRP_Consults_new'], df_DATA['CRP_Consults'])
+df_DATA['PRC_Consults'] = np.where(df_DATA['PRC_Consults_new'].notnull(), df_DATA['PRC_Consults_new'],df_DATA['PRC_Consults'])
+df_DATA['Consult_GMV'] = np.where(df_DATA['Consult_GMV_new'].notnull(), df_DATA['Consult_GMV_new'], df_DATA['Consult_GMV'])
+df_DATA['CRP_GMV'] = np.where(df_DATA['CRP_GMV_new'].notnull(), df_DATA['CRP_GMV_new'], df_DATA['CRP_GMV'])
+df_DATA['PRC_GMV'] = np.where(df_DATA['PRC_GMV_new'].notnull(), df_DATA['PRC_GMV_new'], df_DATA['PRC_GMV'])
+
 df_Final = df_DATA [["Date", "PMS_Name", "ClinicName", "PMS_New_Consults", "PMS_Follow_up_Consults", "Consult_GMV", "CRP_Consults", "CRP_GMV", "PRC_Consults", "PRC_GMV", "Physio_Consults", "Nutrition_Consults", "Psychology_Consults"]]
 
 df_Final['Date'] = pd.to_datetime(df_Final['Date'], format='%d-%m-%y').dt.strftime('%Y-%m-%d')
