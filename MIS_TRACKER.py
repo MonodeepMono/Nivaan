@@ -20,24 +20,35 @@ conn = mycursor.execute
 sql_query = """
            SELECT 
     DATE_FORMAT(c.consult_datetime, '%d-%m-%y') as Date,
-    ap.full_name as PMS_Name,
+    ap.full_name as DoctorName,
     l.name as ClinicName,
-    SUM(CASE WHEN c.title LIKE '%First Consultation%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_New_Consults,
-    SUM(CASE WHEN c.title LIKE '%Follow up%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_Follow_up_Consults,
+    SUM(CASE WHEN c.title LIKE '%First Consultation%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as New_Consults,
+    SUM(CASE WHEN c.title LIKE '%Follow up%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Follow_up_Consults,
     SUM(CASE WHEN c.title LIKE '%Physio%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Physio_Consults,
     SUM(CASE WHEN c.title LIKE '%Nutrition%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Nutrition_Consults,
     SUM(CASE WHEN c.title LIKE '%Psychology%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Psychology_Consults,
+    SUM(CASE WHEN c.title LIKE '%PsychologyPrescribed%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Psychology_Prescribed,
+    SUM(CASE WHEN c.title LIKE '%NutritionPrescribed%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Nutrition_Prescribed,
+    SUM(CASE WHEN c.title LIKE '%CarePlanPrescribed%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Care_Plan_Prescribed,
+    
     SUM(CASE WHEN c.title LIKE '%CRP%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as CRP_Consults, 
     SUM(CASE WHEN c.title LIKE '%PRC%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRC_Consults,
     SUM(CASE WHEN c.title LIKE '%CRPPrescribed%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as CRPPrescribed,
-    SUM(CASE WHEN c.title LIKE '%SingleSpec%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as SingleSpec, 
+    SUM(CASE WHEN c.title LIKE '%PRCPrescribed%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRCPrescribed,
+    
+    SUM(CASE WHEN c.title LIKE '%SingleSpec%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as SingleSpec_CRP_Booked, 
     SUM(CASE WHEN c.title LIKE '%CRPBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as CRPBooked,
     SUM(CASE WHEN c.title LIKE '%MultiSpecCRPBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as MultiSpecCRPBooked,
     SUM(CASE WHEN c.title LIKE '%PhysioCRP%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PhysioCRP, 
     SUM(CASE WHEN c.title LIKE '%PRCDone%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRCDone,
+    SUM(CASE WHEN c.title LIKE '%NutritionBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as NutritionBooked,
+    SUM(CASE WHEN c.title LIKE '%PhysioBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PhysioBooked,
+    SUM(CASE WHEN c.title LIKE '%PsychBooked%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PsychBooked,
     
-    SUM(CASE WHEN s.title LIKE '%consult%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_New_Consults_new,
-    SUM(CASE WHEN s.title LIKE '%followup%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PMS_Follow_up_Consults_new,
+    
+    
+    SUM(CASE WHEN s.title LIKE '%consult%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as New_Consults_new,
+    SUM(CASE WHEN s.title LIKE '%followup%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as Follow_up_Consults_new,
     SUM(CASE WHEN s.title LIKE '%CRP_sessions%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as CRP_Consults_new, 
     SUM(CASE WHEN s.title LIKE '%procedure%' AND c.patient_attendance_status = 'show' THEN 1 ELSE 0 END) as PRC_Consults_new,
    
@@ -47,7 +58,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as Consult_GMV,
+    ) as Consult_Revenue,
     
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
@@ -55,7 +66,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as Consult_GMV_new,
+    ) as Consult_Revenue_New,
     
     
     (SELECT SUM(amount) 
@@ -64,7 +75,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as CRP_GMV,
+    ) as CRP_Revenue,
     
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
@@ -72,7 +83,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as CRP_GMV_new,
+    ) as CRP_Revenue_New,
     
     (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
@@ -80,7 +91,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as PRC_GMV,
+    ) as PRC_Revenue,
     
      (SELECT SUM(amount) 
      FROM nivaancare_production.consultation 
@@ -88,7 +99,7 @@ sql_query = """
      AND patient_attendance_status = 'show'
      AND consultant_id = c.consultant_id
      AND DATE_FORMAT(consult_datetime, '%d-%m-%y') = DATE_FORMAT(c.consult_datetime, '%d-%m-%y')
-    ) as PRC_GMV_new
+    ) as PRC_Revenue_New
     
 FROM 
     nivaancare_production.consultation c
@@ -102,30 +113,30 @@ ON
     c.location_id = l.id
 LEFT JOIN 
         nivaancare_production.service s ON c.service_id = s.id
+WHERE 
+    DATE(c.consult_datetime) <= CURDATE()
 GROUP BY 
-    Date, PMS_Name, ClinicName
+    Date, DoctorName, ClinicName
 ORDER BY 
     STR_TO_DATE(Date, '%d-%m-%y') DESC;
 
 """
 df_DATA = pd.read_sql_query(sql_query,mydb)
 df_DATA
-df_DATA['PMS_New_Consults'] = np.where(df_DATA['PMS_New_Consults_new'].notnull(), df_DATA['PMS_New_Consults_new'], df_DATA['PMS_New_Consults'])
-df_DATA['PMS_Follow_up_Consults'] = np.where(df_DATA['PMS_Follow_up_Consults_new'].notnull(), df_DATA['PMS_Follow_up_Consults_new'], df_DATA['PMS_Follow_up_Consults'])
+df_DATA['New_Consults'] = np.where(df_DATA['New_Consults_new'].notnull(), df_DATA['New_Consults_new'], df_DATA['New_Consults'])
+df_DATA['Follow_up_Consults'] = np.where(df_DATA['Follow_up_Consults_new'].notnull(), df_DATA['Follow_up_Consults_new'], df_DATA['Follow_up_Consults'])
 df_DATA['CRP_Consults'] = np.where(df_DATA['CRP_Consults_new'].notnull(), df_DATA['CRP_Consults_new'], df_DATA['CRP_Consults'])
 df_DATA['PRC_Consults'] = np.where(df_DATA['PRC_Consults_new'].notnull(), df_DATA['PRC_Consults_new'],df_DATA['PRC_Consults'])
-df_DATA['Consult_GMV'] = np.where(df_DATA['Consult_GMV_new'].notnull(), df_DATA['Consult_GMV_new'], df_DATA['Consult_GMV'])
-df_DATA['CRP_GMV'] = np.where(df_DATA['CRP_GMV_new'].notnull(), df_DATA['CRP_GMV_new'], df_DATA['CRP_GMV'])
-df_DATA['PRC_GMV'] = np.where(df_DATA['PRC_GMV_new'].notnull(), df_DATA['PRC_GMV_new'], df_DATA['PRC_GMV'])
+df_DATA['Consult_Revenue'] = np.where(df_DATA['Consult_Revenue_New'].notnull(), df_DATA['Consult_Revenue_New'], df_DATA['Consult_Revenue'])
+df_DATA['CRP_Revenue'] = np.where(df_DATA['CRP_Revenue_New'].notnull(), df_DATA['CRP_Revenue_New'], df_DATA['CRP_Revenue'])
+df_DATA['PRC_Revenue'] = np.where(df_DATA['PRC_Revenue_New'].notnull(), df_DATA['PRC_Revenue_New'], df_DATA['PRC_Revenue'])
 
-df_Final = df_DATA [["Date", "PMS_Name", "ClinicName", "PMS_New_Consults", "PMS_Follow_up_Consults", "Consult_GMV", "CRP_Consults", "CRP_GMV", "PRC_Consults", "PRC_GMV", "Physio_Consults", "Nutrition_Consults", "Psychology_Consults"]]
+df_Final = df_DATA [["Date", "DoctorName", "ClinicName", "New_Consults", "Follow_up_Consults", "Physio_Consults", "Nutrition_Consults", "Psychology_Consults", "Consult_Revenue", "Psychology_Prescribed", "Nutrition_Prescribed", "Care_Plan_Prescribed" ,"SingleSpec_CRP_Booked","MultiSpecCRPBooked","PhysioBooked","NutritionBooked","PsychBooked","CRP_Revenue","PRCPrescribed","PRCDone","PRC_Revenue"]]
 
 df_Final['Date'] = pd.to_datetime(df_Final['Date'], format='%d-%m-%y').dt.strftime('%Y-%m-%d')
 
-df_Final_filtered = df_Final.loc[(df_Final['PMS_New_Consults'] != 0) |
-                                 (df_Final['PMS_Follow_up_Consults'] != 0) |
-                                 (df_Final['CRP_Consults'] != 0) |
-                                 (df_Final['PRC_Consults'] != 0)]
+df_Final_filtered = df_Final.loc[(df_Final['New_Consults'] != 0) |
+                                 (df_Final['Follow_up_Consults'] != 0) ]
 df_Final_filtered
 df_Final_filtered_sorted = df_Final_filtered.sort_values(by='Date', ascending=False)
 df_Final_filtered_sorted
